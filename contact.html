@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Emmanuel Richmond</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init("8x3Kzf1MzBgmZIHoo"); // your public key
+        })();
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Emmanuel Richmond</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="resume.html">Resume</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Send Me a Message</h2>
+        <form id="contact-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="from_name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="from_email" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+
+        <p id="status"></p>
+
+        <hr>
+
+        <h3>Contact Info</h3>
+        <p>Name: Emmanuel Richmond</p>
+        <p>Phone: 647-761-6794</p>
+        <p>Email: <a href="mailto:emman774@hotmail.com">emman774@hotmail.com</a></p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Emmanuel Richmond</p>
+    </footer>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(e){
+            e.preventDefault();
+            const status = document.getElementById('status');
+
+            emailjs.sendForm('service_0k4znfi', 'template_0tkay3j', this)
+            .then(function(){
+                status.textContent = "Message sent successfully!";
+                status.style.color = "green";
+                document.getElementById('contact-form').reset();
+            }, function(error){
+                status.textContent = "Failed to send message. Please try again later.";
+                status.style.color = "red";
+                console.error('EmailJS error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
