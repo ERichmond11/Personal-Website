@@ -17,47 +17,85 @@
         </nav>
     </header>
 
-    <main>
-        <h2>My Projects</h2>
-        <p>Here are some of the software engineering projects and coding work I’ve been developing:</p>
+<main>
+  <h2>My Projects</h2>
+  
+  <!-- Web Development Projects -->
+  <section id="projects-web" class="fade-in">
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('web-list', this)">Web Development ▾</button>
+      <ul id="web-list" class="dropdown-content">
+        <li>
+          <strong>Fully Responsive Tech Website</strong><br>
+          <p>A responsive front-end project showcasing modern web design using HTML, CSS, and JavaScript. Demonstrates layout optimization and clean UI design across all devices.</p>
+          <a href="https://github.com/ERichmond11/TechFullyResponsiveWeb" target="_blank" class="btn">View on GitHub</a>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-        <!-- LeetCode Section -->
-        <section id="leetcode-project" class="fade-in">
-            <h2>LeetCode Solutions</h2>
-            <p>Algorithmic problems I’ve solved, organized by difficulty. Click to explore.</p>
+  <!-- Software Projects -->
+  <section id="projects-software" class="fade-in">
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('software-list', this)">Software ▾</button>
+      <ul id="software-list" class="dropdown-content">
+        <li>
+          <strong>Raspberry Pi OTA Demo</strong><br>
+          <p>A digital solution for system updating built using Raspberry Pi devices. Demonstrates embedded software deployment, server communication, and secure firmware distribution.</p>
+          <a href="https://github.com/ERichmond11/RaspberryPi-OTA-Demo" target="_blank" class="btn">View on GitHub</a>
+        </li>
 
-            <div class="dropdown">
-                <button class="dropbtn" onclick="toggleDropdown('easy-list', this)">Easy ▾</button>
-                <ul id="easy-list" class="dropdown-content">
-                    <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/EqualDigitsInStringAfterOperations.py" target="_blank">Equal Digits in String After Operations</a></li>
-                    <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/IndexOfFirstOccurenceInString.py" target="_blank">Index of First Occurrence in String</a></li>
-                    <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/MergeTwoSortedLists.py" target="_blank">Merge Two Sorted Lists</a></li>
-                    <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/PalindromeNumber.py" target="_blank">Palindrome Number</a></li>
-                    <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/RemoveDuplicatesFromSortedArray.py" target="_blank">Remove Duplicates from Sorted Array</a></li>
-                    <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/RemoveElement.py" target="_blank">Remove Element</a></li>
-                    <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/RomanToInteger.py" target="_blank">Roman to Integer</a></li>
-                    <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/SneakyNumbersOfDigitville.py" target="_blank">Sneaky Numbers of Digitville</a></li>
-                    <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/TwoSum.py" target="_blank">Two Sum</a></li>
-                    <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/ValidParantheses.py" target="_blank">Valid Parentheses</a></li>
-                    <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/longestcommonprefix.py" target="_blank">Longest Common Prefix</a></li>
-                </ul>
-            </div>
+        <li>
+          <strong>Computer Vision Handwriting Project</strong><br>
+          <p>A computer vision system that recognizes and digitizes handwritten text using OpenCV and neural network models. Focused on improving OCR accuracy for handwritten notes.</p>
+          <a href="https://github.com/ERichmond11/ComputerVision-Handwriting" target="_blank" class="btn">View on GitHub</a>
+        </li>
+      </ul>
+    </div>
+  </section>
 
-            <div class="dropdown">
-                <button class="dropbtn" onclick="toggleDropdown('medium-list', this)">Medium ▾</button>
-                <ul id="medium-list" class="dropdown-content">
-                    <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Medium/AddTwoNumbers.py" target="_blank">Add Two Numbers</a></li>
-                </ul>
-            </div>
+  <!-- Data Science Projects -->
+  <section id="projects-data" class="fade-in">
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('data-list', this)">Data Science ▾</button>
+      <ul id="data-list" class="dropdown-content">
+        <li><em>Coming soon...</em></li>
+      </ul>
+    </div>
+  </section>
 
-            <div class="dropdown">
-                <button class="dropbtn" onclick="toggleDropdown('hard-list', this)">Hard ▾</button>
-                <ul id="hard-list" class="dropdown-content">
-                    <li><em>Coming soon...</em></li>
-                </ul>
-            </div>
-        </section>
-    </main>
+  <!-- LeetCode Section -->
+  <section id="leetcode-project" class="fade-in" style="background: none; box-shadow: none; padding: 0;">
+    <h2>LeetCode Solutions</h2>
+    <p>Algorithmic problems I’ve solved, organized by difficulty. Click to explore.</p>
+
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('easy-list', this)">Easy ▾</button>
+      <ul id="easy-list" class="dropdown-content">
+        <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/EqualDigitsInStringAfterOperations.py" target="_blank">Equal Digits in String After Operations</a></li>
+        <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/TwoSum.py" target="_blank">Two Sum</a></li>
+        <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/ValidParantheses.py" target="_blank">Valid Parentheses</a></li>
+        <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/longestcommonprefix.py" target="_blank">Longest Common Prefix</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('medium-list', this)">Medium ▾</button>
+      <ul id="medium-list" class="dropdown-content">
+        <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Medium/AddTwoNumbers.py" target="_blank">Add Two Numbers</a></li>
+      </ul>
+    </div>
+
+    <div class="dropdown">
+      <button class="dropbtn" onclick="toggleDropdown('hard-list', this)">Hard ▾</button>
+      <ul id="hard-list" class="dropdown-content">
+        <li><em>Coming soon...</em></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+
 
     <footer>
         <p>&copy; 2025 Emmanuel Richmond</p>

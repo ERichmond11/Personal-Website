@@ -252,3 +252,60 @@ footer {
   text-decoration: underline;
 }
 
+/* ------------------- Project Section Styling ------------------- */
+main section {
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+main section:last-of-type {
+  border-bottom: none;
+}
+
+.dropdown {
+  margin-top: 15px;
+}
+
+.dropdown .dropbtn {
+  width: 100%;
+  text-align: left;
+  background-color: #1f1f1f;
+  color: #fff;
+  padding: 12px 15px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown .dropbtn:hover {
+  background-color: #ff4c4c;
+}
+
+.dropdown-content {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-content li {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 12px 0;
+  padding: 15px;
+}
+
+.dropdown-content li p {
+  margin: 8px 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.dropdown-content li .btn {
+  display: inline-block;
+  margin-top: 8px;
+}
+
