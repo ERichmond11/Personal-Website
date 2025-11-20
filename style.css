@@ -222,8 +222,8 @@ footer {
 
 .dropdown-content {
   list-style: none;
-  overflow: hidden;
   max-height: 0;
+  overflow-y: hidden;         /* changed from hidden to hidden-y only */
   transition: max-height 0.4s ease, padding 0.3s ease;
   padding: 0;
   margin: 8px 0 15px 0;
@@ -231,6 +231,28 @@ footer {
   background: #f7f7f7;
   border-radius: 5px;
 }
+
+/* When dropdown opens */
+.dropdown-content.show {
+  max-height: 300px;          /* limit height so scrolling can happen */
+  overflow-y: auto;           /* enable scrolling */
+  padding: 10px 15px;
+}
+
+/* Scrollbar styling (optional but clean) */
+.dropdown-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
 
 .dropdown-content.show {
   max-height: 500px;
