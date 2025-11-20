@@ -331,3 +331,70 @@ main section:last-of-type {
   margin-top: 8px;
 }
 
+/*Brand page styling*/
+.apparel-item {
+    margin-bottom: 40px;
+}
+
+.apparel-img {
+    width: 300px;
+    margin: 10px;
+    border-radius: 8px;
+}
+.slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 320px;
+    margin: 20px 0;
+}
+
+.slider-img {
+    width: 300px;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.arrow {
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    color: #333;
+}
+
+.arrow:hover {
+    color: #000;
+}
+
+.prototype img {
+  width: 350px;       /* Adjust size here */
+  max-width: 90%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.image-slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+  gap: 20px;
+}
+
+.arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.arrow:hover {
+  color: #000;
+}
+
+
