@@ -17,15 +17,19 @@
         <a href="mybrand.html">My Brand</a> <!-- NEW -->
     </nav>
 
-    </header>
+</header>
 
 <main>
-  <h2>My Projects</h2>
+  <section class="hero fade-in">
+    <div class="kicker">Work</div>
+    <h2>My Projects</h2>
+    <p>Selected work across web development, software engineering, and problem solving.</p>
+  </section>
   
   <!-- Web Development Projects -->
   <section id="projects-web" class="fade-in">
     <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('web-list', this)">Web Development ▾</button>
+      <button class="dropbtn" onclick="toggleDropdown('web-list', this)" aria-expanded="false">Web Development ▾</button>
       <ul id="web-list" class="dropdown-content">
         <li>
           <strong>Fully Responsive Tech Website</strong><br>
@@ -39,7 +43,7 @@
   <!-- Software Projects -->
   <section id="projects-software" class="fade-in">
     <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('software-list', this)">Software Engineering ▾</button>
+      <button class="dropbtn" onclick="toggleDropdown('software-list', this)" aria-expanded="false">Software Engineering ▾</button>
       <ul id="software-list" class="dropdown-content">
         <li>
           <strong>Banking Application</strong><br>
@@ -58,7 +62,7 @@
   <!-- Data Science Projects -->
   <section id="projects-data" class="fade-in">
     <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('data-list', this)">Data Science ▾</button>
+      <button class="dropbtn" onclick="toggleDropdown('data-list', this)" aria-expanded="false">Data Science ▾</button>
       <ul id="data-list" class="dropdown-content">
         <li><em>Coming soon...</em></li>
       </ul>
@@ -66,12 +70,12 @@
   </section>
 
   <!-- LeetCode Section -->
-  <section id="leetcode-project" class="fade-in" style="background: none; box-shadow: none; padding: 0;">
+  <section id="leetcode-project" class="fade-in">
     <h2>LeetCode Solutions</h2>
     <p>Algorithmic problems I’ve solved, organized by difficulty. Click to explore.</p>
 
     <div class="dropdown">
-  <button class="dropbtn" onclick="toggleDropdown('easy-list', this)">Easy ▾</button>
+  <button class="dropbtn" onclick="toggleDropdown('easy-list', this)" aria-expanded="false">Easy ▾</button>
   <ul id="easy-list" class="dropdown-content">
 
     <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Easy/EqualDigitsInStringAfterOperations.py" target="_blank">Equal Digits in String After Operations</a></li>
@@ -101,14 +105,14 @@
 
 
     <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('medium-list', this)">Medium ▾</button>
+      <button class="dropbtn" onclick="toggleDropdown('medium-list', this)" aria-expanded="false">Medium ▾</button>
       <ul id="medium-list" class="dropdown-content">
         <li><a href="https://github.com/ERichmond11/LeetCode-Solutions/blob/main/Medium/AddTwoNumbers.py" target="_blank">Add Two Numbers</a></li>
       </ul>
     </div>
 
     <div class="dropdown">
-      <button class="dropbtn" onclick="toggleDropdown('hard-list', this)">Hard ▾</button>
+      <button class="dropbtn" onclick="toggleDropdown('hard-list', this)" aria-expanded="false">Hard ▾</button>
       <ul id="hard-list" class="dropdown-content">
         <li><em>Coming soon...</em></li>
       </ul>

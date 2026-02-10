@@ -1,67 +1,130 @@
-// future animations / click interactions here
-console.log("script loaded");
+/* Global interactions for the static site:
+ * - dropdown toggles (Projects/LeetCode)
+ * - reveal-on-scroll animation
+ * - active nav highlighting
+ * - brand/apparel image sliders (no duplicate IDs required)
+ */
 
-// ---------------- LeetCode dropdown interactions ----------------
+function getCurrentPageFilename() {
+  const path = window.location.pathname || "";
+  const last = path.split("/").filter(Boolean).pop() || "";
+  // When hosted with SPA rewrites, pathname may be "/" or "", treat as index.html
+  return last === "" ? "index.html" : last;
+}
+
+function initActiveNav() {
+  const current = getCurrentPageFilename();
+  const links = document.querySelectorAll("header nav a[href]");
+  links.forEach(a => {
+    const href = a.getAttribute("href") || "";
+    if (href === current) a.classList.add("active");
+  });
+}
+
+// ---------------- Dropdown interactions ----------------
+// Keep this as a global for existing inline onclick="toggleDropdown(...)"
 function toggleDropdown(id, button) {
   const list = document.getElementById(id);
-  const allLists = document.querySelectorAll('.dropdown-content');
-  const allButtons = document.querySelectorAll('.dropbtn');
+  if (!list) return;
+
+  const allLists = document.querySelectorAll(".dropdown-content");
+  const allButtons = document.querySelectorAll(".dropbtn");
 
   // close other dropdowns
   allLists.forEach(l => {
-    if (l !== list) l.classList.remove('show');
+    if (l !== list) l.classList.remove("show");
   });
+
   allButtons.forEach(b => {
-    if (b !== button) b.innerHTML = b.innerHTML.replace('▴', '▾');
+    if (b !== button) b.innerHTML = b.innerHTML.replace("▴", "▾");
+    if (b !== button) b.setAttribute("aria-expanded", "false");
   });
 
   // toggle current dropdown
-  list.classList.toggle('show');
-  button.innerHTML = list.classList.contains('show')
-    ? button.innerHTML.replace('▾', '▴')
-    : button.innerHTML.replace('▴', '▾');
+  const willShow = !list.classList.contains("show");
+  list.classList.toggle("show", willShow);
+  if (button) {
+    button.setAttribute("aria-expanded", willShow ? "true" : "false");
+    button.innerHTML = willShow
+      ? button.innerHTML.replace("▾", "▴")
+      : button.innerHTML.replace("▴", "▾");
+  }
 }
 
-//Brand images styling
+// ---------------- Reveal on scroll ----------------
+function initReveal() {
+  const items = Array.from(document.querySelectorAll(".fade-in"));
+  if (items.length === 0) return;
 
-function nextImage(arrow) {
-    const img = arrow.parentElement.querySelector('.slider-img');
-    const front = img.getAttribute('data-front');
-    const back = img.getAttribute('data-back');
+  if (!("IntersectionObserver" in window)) {
+    items.forEach(el => el.classList.add("is-visible"));
+    return;
+  }
 
-    img.src = img.src.includes(front) ? back : front;
+  const io = new IntersectionObserver(
+    entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("is-visible");
+        io.unobserve(e.target);
+      });
+    },
+    { rootMargin: "0px 0px -10% 0px", threshold: 0.08 }
+  );
+
+  items.forEach(el => io.observe(el));
 }
 
-function prevImage(arrow) {
-    const img = arrow.parentElement.querySelector('.slider-img');
-    const front = img.getAttribute('data-front');
-    const back = img.getAttribute('data-back');
-
-    img.src = img.src.includes(back) ? front : back;
+// ---------------- Brand sliders ----------------
+function parseImagesAttr(raw) {
+  return (raw || "")
+    .split(",")
+    .map(s => s.trim())
+    .filter(Boolean);
 }
 
-const images = {
-  black: ["images/BlackFront.PNG", "images/BlackBack.PNG"],
-  white: ["images/WhiteFront.PNG", "images/WhiteBack.PNG"],
-  green: ["images/GreenFront.PNG", "images/GreenBack.PNG"]
-};
+function setSliderIndex(slider, idx) {
+  const images = parseImagesAttr(slider.getAttribute("data-images"));
+  const img = slider.querySelector("img");
+  if (!img || images.length === 0) return;
 
-const indexTracker = {
-  black: 0,
-  white: 0,
-  green: 0
-};
+  const clamped = ((idx % images.length) + images.length) % images.length;
+  slider.setAttribute("data-index", String(clamped));
+  img.src = images[clamped];
 
-function nextImage(color) {
-  indexTracker[color] = (indexTracker[color] + 1) % images[color].length;
-  document.getElementById(`${color}-img`).src = images[color][indexTracker[color]];
+  const prevBtn = slider.querySelector('[data-dir="prev"]');
+  const nextBtn = slider.querySelector('[data-dir="next"]');
+  const disabled = images.length < 2;
+  if (prevBtn) prevBtn.disabled = disabled;
+  if (nextBtn) nextBtn.disabled = disabled;
 }
 
-function prevImage(color) {
-  indexTracker[color] =
-    (indexTracker[color] - 1 + images[color].length) % images[color].length;
-  document.getElementById(`${color}-img`).src = images[color][indexTracker[color]];
+function initSliders() {
+  const sliders = document.querySelectorAll("[data-slider][data-images]");
+  sliders.forEach(slider => {
+    const images = parseImagesAttr(slider.getAttribute("data-images"));
+    if (images.length === 0) return;
+
+    // Ensure initial state matches markup
+    setSliderIndex(slider, 0);
+
+    slider.addEventListener("click", e => {
+      const btn = e.target && e.target.closest && e.target.closest("[data-dir]");
+      if (!btn) return;
+      const dir = btn.getAttribute("data-dir");
+      const current = Number(slider.getAttribute("data-index") || "0");
+      setSliderIndex(slider, dir === "prev" ? current - 1 : current + 1);
+    });
+  });
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  initActiveNav();
+  initReveal();
+  initSliders();
+});
+
+// Expose only what existing HTML expects
+window.toggleDropdown = toggleDropdown;
 
 

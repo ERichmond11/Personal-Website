@@ -20,10 +20,19 @@
     </header>
 
     <main>
-        <h2>My Resume</h2>
+        <section class="hero fade-in">
+            <div class="kicker">Resume</div>
+            <h2>My Resume</h2>
+            <p>View the embedded PDF or download it below.</p>
+            <div class="cta-row">
+                <a class="btn" href="SoftwareEngineer-EmmanuelRichmond.pdf" download>Download PDF</a>
+                <a class="btn btn-ghost" href="contact.html">Reach Out</a>
+            </div>
+        </section>
 
         <!-- Embed PDF with correct filename -->
-        <iframe src="SoftwareEngineer-EmmanuelRichmond.pdf" width="100%" height="800px" style="border:1px solid #ccc;">
+        <section class="fade-in">
+        <iframe src="SoftwareEngineer-EmmanuelRichmond.pdf" height="800px">
             Your browser does not support iframes. You can 
             <a href="SoftwareEngineer-EmmanuelRichmond.pdf" download>download the PDF here</a>.
         </iframe>
@@ -32,10 +41,12 @@
         <p style="text-align:center;">
             <a href="SoftwareEngineer-EmmanuelRichmond.pdf" download>Download Resume (PDF)</a>
         </p>
+        </section>
     </main>
 
     <footer>
         <p>&copy; 2026 Emmanuel Richmond</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
