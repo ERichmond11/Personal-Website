@@ -105,6 +105,12 @@ function initSliders() {
     const images = parseImagesAttr(slider.getAttribute("data-images"));
     if (images.length === 0) return;
 
+    // Warm image cache so first frame is reliable across browsers/devices.
+    images.forEach(src => {
+      const preload = new Image();
+      preload.src = src;
+    });
+
     // Ensure initial state matches markup
     setSliderIndex(slider, 0);
 
@@ -126,5 +132,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Expose only what existing HTML expects
 window.toggleDropdown = toggleDropdown;
-
 
